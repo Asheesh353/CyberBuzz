@@ -32,6 +32,47 @@ body{
     z-index:9999;
 }
 
+/* ✨ UPDATED NEON TITLE */
+#loading h1{
+    color:#00ffff;
+    font-size:68px;
+    font-weight:900;
+    letter-spacing:3px;
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 40px #00ffff,
+        0 0 80px #00ffff,
+        0 0 120px #00ffff;
+
+    animation:glowPulse 1.5s infinite alternate;
+}
+
+/* ✨ GLOW ANIMATION */
+@keyframes glowPulse{
+    0%{
+        text-shadow:
+            0 0 10px #00ffff,
+            0 0 20px #00ffff,
+            0 0 40px #00ffff;
+    }
+    100%{
+        text-shadow:
+            0 0 20px #00ffff,
+            0 0 40px #00ffff,
+            0 0 80px #00ffff,
+            0 0 120px #00ffff;
+    }
+}
+
+#loading p{
+    margin-top:20px;
+    font-size:22px;
+    color:white;
+}
+
 /* MAIN PAGE */
 #main{
     display:none;
@@ -48,7 +89,6 @@ body{
     background:url("https://i.imgur.com/7b1R6YQ.png");
     opacity:0.5;
     animation:moveStars 80s linear infinite;
-    pointer-events:none; /* FIX: allows clicks through */
 }
 
 @keyframes moveStars{
@@ -106,7 +146,7 @@ body{
     margin-top:10px;
 }
 
-/* Buttons panel */
+/* Buttons */
 .panel{
     position:absolute;
     top:30%;
@@ -151,37 +191,24 @@ body{
 .highlight{
     color:#00ffff;
 }
-
-/* TOP BUTTON */
-.top-btn{
-    position:absolute;
-    top:15px;
-    right:15px;
-    padding:8px 12px;
-    border-radius:12px;
-    border:1px solid #aaa;
-    background:rgba(255,255,255,0.1);
-    color:white;
-    cursor:pointer;
-    z-index:10;
-}
 </style>
 </head>
 
 <body>
 
+<button onclick="location.href='eco.html'" 
+style="position:absolute; top:15px; right:15px; padding:8px 12px; border-radius:12px; border:1px solid #aaa; background:rgba(255,255,255,0.1); color:white; cursor:pointer;">
+🌿 PLANET SPE
+</button>
+
 <!-- LOADING -->
 <div id="loading">
-    <h1>VR Mission</h1>
+    <h1>VR MISSION</h1>
     <p id="loadText">Initializing VR...</p>
 </div>
 
 <!-- MAIN -->
 <div id="main">
-
-<button class="top-btn" onclick="location.href='eco.html'">
-🌿 PLANET SPE
-</button>
 
 <div class="stars"></div>
 <div class="ship">🚀</div>
@@ -208,6 +235,7 @@ Mission Ready. Select an action to begin.
 
 <script>
 
+/* LOADING SCREEN TEXT */
 setTimeout(()=>{
 document.getElementById("loadText").innerText="Syncing Neural Sensors...";
 },1000);
@@ -221,6 +249,7 @@ document.getElementById("loading").style.display="none";
 document.getElementById("main").style.display="block";
 },3000);
 
+/* BUTTON ACTIONS */
 function scanPlanet(){
 document.getElementById("infoBox").innerHTML=
 "<span class='highlight'>Scan Complete</span><br>Atmosphere: 54% Oxygen<br>Threat Level: Medium";
