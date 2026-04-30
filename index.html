@@ -32,7 +32,7 @@ body{
     z-index:9999;
 }
 
-/* ✨ UPDATED NEON TITLE */
+/* NEON TITLE */
 #loading h1{
     color:#00ffff;
     font-size:68px;
@@ -50,7 +50,6 @@ body{
     animation:glowPulse 1.5s infinite alternate;
 }
 
-/* ✨ GLOW ANIMATION */
 @keyframes glowPulse{
     0%{
         text-shadow:
@@ -70,7 +69,6 @@ body{
 #loading p{
     margin-top:20px;
     font-size:22px;
-    color:white;
 }
 
 /* MAIN PAGE */
@@ -79,6 +77,29 @@ body{
     height:100vh;
     width:100%;
     position:relative;
+}
+
+/* PLANET SPE BUTTON (FIXED + ABOVE EVERYTHING) */
+.planet-btn{
+    position:fixed;
+    top:15px;
+    right:15px;
+    padding:10px 14px;
+    border-radius:12px;
+    border:1px solid #00ffff;
+    background:rgba(0,255,255,0.1);
+    color:white;
+    cursor:pointer;
+    z-index:10000;
+    text-decoration:none;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.planet-btn:hover{
+    background:#00ffff;
+    color:black;
+    transform:scale(1.05);
 }
 
 /* Stars */
@@ -196,10 +217,8 @@ body{
 
 <body>
 
-<button onclick="location.href='eco.html'" 
-style="position:absolute; top:15px; right:15px; padding:8px 12px; border-radius:12px; border:1px solid #aaa; background:rgba(255,255,255,0.1); color:white; cursor:pointer;">
-🌿 PLANET SPE
-</button>
+<!-- ✅ PLANET SPE BUTTON (ALWAYS VISIBLE) -->
+<a href="eco.html" class="planet-btn">🌿 PLANET SPE</a>
 
 <!-- LOADING -->
 <div id="loading">
