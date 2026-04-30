@@ -32,31 +32,11 @@ body{
     z-index:9999;
 }
 
-/* ✨ SOFTER GLOW */
+/* 💙 NAVYA STYLE (SIMPLE GLOW) */
 #loading h1{
-    color:#7fefff;          /* softer blue */
-    font-size:58px;
-    font-weight:600;
-    letter-spacing:1.5px;
-
-    text-shadow:
-        0 0 4px rgba(127,239,255,0.6),
-        0 0 8px rgba(127,239,255,0.4);
-
-    animation:glowPulse 3s infinite alternate;
-}
-
-@keyframes glowPulse{
-    from{
-        text-shadow:
-            0 0 3px rgba(127,239,255,0.5),
-            0 0 6px rgba(127,239,255,0.3);
-    }
-    to{
-        text-shadow:
-            0 0 6px rgba(127,239,255,0.7),
-            0 0 10px rgba(127,239,255,0.4);
-    }
+    color:#00ffff;
+    font-size:48px;
+    text-shadow:0 0 12px #00ffff;
 }
 
 #loading p{
@@ -72,7 +52,7 @@ body{
     position:relative;
 }
 
-/* 🌿 BUTTON (INSIDE MAIN → CLICKABLE) */
+/* 🌿 BUTTON (CLICKABLE) */
 .planet-btn{
     position:absolute;
     top:15px;
@@ -216,7 +196,7 @@ body{
 <!-- MAIN -->
 <div id="main">
 
-<!-- ✅ BUTTON MOVED HERE -->
+<!-- 🌿 BUTTON -->
 <a href="eco.html" class="planet-btn">🌿 PLANET SPE</a>
 
 <div class="stars"></div>
@@ -244,7 +224,6 @@ Mission Ready. Select an action to begin.
 
 <script>
 
-/* LOADING TEXT */
 setTimeout(()=>{
 document.getElementById("loadText").innerText="Syncing Neural Sensors...";
 },1000);
@@ -258,7 +237,6 @@ document.getElementById("loading").style.display="none";
 document.getElementById("main").style.display="block";
 },3000);
 
-/* ACTIONS */
 function scanPlanet(){
 document.getElementById("infoBox").innerHTML=
 "<span class='highlight'>Scan Complete</span><br>Atmosphere: 54% Oxygen<br>Threat Level: Medium";
