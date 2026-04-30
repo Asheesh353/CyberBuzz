@@ -32,18 +32,6 @@ body{
     z-index:9999;
 }
 
-#loading h1{
-    color:#00ffff;
-    font-size:42px;
-    text-shadow:0 0 15px #00ffff;
-}
-
-#loading p{
-    margin-top:20px;
-    font-size:22px;
-    color:white;
-}
-
 /* MAIN PAGE */
 #main{
     display:none;
@@ -60,6 +48,7 @@ body{
     background:url("https://i.imgur.com/7b1R6YQ.png");
     opacity:0.5;
     animation:moveStars 80s linear infinite;
+    pointer-events:none; /* FIX: allows clicks through */
 }
 
 @keyframes moveStars{
@@ -117,7 +106,7 @@ body{
     margin-top:10px;
 }
 
-/* Buttons */
+/* Buttons panel */
 .panel{
     position:absolute;
     top:30%;
@@ -162,17 +151,24 @@ body{
 .highlight{
     color:#00ffff;
 }
+
+/* TOP BUTTON */
+.top-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    padding:8px 12px;
+    border-radius:12px;
+    border:1px solid #aaa;
+    background:rgba(255,255,255,0.1);
+    color:white;
+    cursor:pointer;
+    z-index:10;
+}
 </style>
 </head>
 
 <body>
-
-
-<button onclick="location.href='eco.html'" 
-style="position:absolute; top:15px; right:15px; padding:8px 12px; border-radius:12px; border:1px solid #aaa; background:rgba(255,255,255,0.1); color:white; cursor:pointer; z-index:10000;">
-🌿 PLANET SPE
-</button>
-
 
 <!-- LOADING -->
 <div id="loading">
@@ -182,6 +178,10 @@ style="position:absolute; top:15px; right:15px; padding:8px 12px; border-radius:
 
 <!-- MAIN -->
 <div id="main">
+
+<button class="top-btn" onclick="location.href='eco.html'">
+🌿 PLANET SPE
+</button>
 
 <div class="stars"></div>
 <div class="ship">🚀</div>
@@ -208,7 +208,6 @@ Mission Ready. Select an action to begin.
 
 <script>
 
-/* LOADING SCREEN TEXT */
 setTimeout(()=>{
 document.getElementById("loadText").innerText="Syncing Neural Sensors...";
 },1000);
@@ -222,7 +221,6 @@ document.getElementById("loading").style.display="none";
 document.getElementById("main").style.display="block";
 },3000);
 
-/* BUTTON ACTIONS */
 function scanPlanet(){
 document.getElementById("infoBox").innerHTML=
 "<span class='highlight'>Scan Complete</span><br>Atmosphere: 54% Oxygen<br>Threat Level: Medium";
