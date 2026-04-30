@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecosystem Revival</title>
+<title>Planet SPE - Ecosystem Revival</title>
 
 <style>
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
+    font-family:'Segoe UI', sans-serif;
 }
 
 body{
@@ -22,7 +22,7 @@ body{
     align-items:center;
 }
 
-/* MAIN CONTAINER */
+/* CONTAINER */
 .container{
     width:90%;
     max-width:1000px;
@@ -33,7 +33,7 @@ body{
     box-shadow:0 0 40px rgba(0,255,170,0.2);
 }
 
-/* TITLE */
+/* HEADER */
 .header{
     text-align:center;
     margin-bottom:25px;
@@ -48,14 +48,14 @@ body{
     opacity:0.8;
 }
 
-/* GRID LAYOUT */
+/* GRID */
 .grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:20px;
 }
 
-/* BUTTONS */
+/* ACTION BUTTONS */
 .action{
     padding:18px;
     border-radius:14px;
@@ -87,7 +87,7 @@ body{
     color:#6affc6;
 }
 
-/* PROGRESS */
+/* PROGRESS BAR */
 .progress{
     margin-top:15px;
     height:12px;
@@ -110,7 +110,7 @@ body{
 <div class="container">
 
 <div class="header">
-    <h1>Planet Spe</h1>
+    <h1>Planet SPE</h1>
     <p>Ecosystem Revival Mode</p>
 </div>
 
@@ -134,7 +134,6 @@ Ecosystem offline. Begin restoration.
 </div>
 
 <script>
-
 let progress = 0;
 
 function update(type){
@@ -146,7 +145,7 @@ function update(type){
     }
 
     if(type === "ocean"){
-        text = "<span class='highlight'>Hydrosphere Formed</span><br>Oceans are stabilizing climate systems.";
+        text = "<span class='highlight'>Hydrosphere Formed</span><br>Oceans stabilizing climate systems.";
         progress += 25;
     }
 
@@ -160,18 +159,17 @@ function update(type){
         progress += 25;
     }
 
-    document.getElementById("infoBox").innerHTML = text;
-
     if(progress > 100) progress = 100;
+
+    document.getElementById("infoBox").innerHTML = text;
     document.getElementById("bar").style.width = progress + "%";
+
+    // FINAL STATE
+    if(progress >= 100){
+        document.getElementById("infoBox").innerHTML =
+        "<span class='highlight'>Planet Restored</span><br>Life is thriving once again.";
+    }
 }
-
-
-if(progress === 100){
-    document.getElementById("infoBox").innerHTML =
-    "<span class='highlight'>Planet Restored</span><br>Life is thriving once again.";
-}
-
 </script>
 
 </body>
