@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VR Mission - God Mode</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(to bottom,#03010a,#120028,#22003f);
+    color:white;
+}
+
+/* LOADING SCREEN */
+#loading{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    z-index:9999;
+}
+
+#loading h1{
+    color:#00ffff;
+    font-size:42px;
+    text-shadow:0 0 15px #00ffff;
+}
+
+#loading p{
+    margin-top:20px;
+    font-size:22px;
+    color:white;
+}
+
+/* MAIN PAGE */
+#main{
+    display:none;
+    height:100vh;
+    width:100%;
+    position:relative;
+}
+
+/* Stars */
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:url("https://i.imgur.com/7b1R6YQ.png");
+    opacity:0.5;
+    animation:moveStars 80s linear infinite;
+}
+
+@keyframes moveStars{
+    from{transform:translateY(0);}
+    to{transform:translateY(1000px);}
+}
+
+/* Spaceship */
+.ship{
+    position:absolute;
+    top:15%;
+    left:-200px;
+    font-size:50px;
+    animation:flyShip 15s linear infinite;
+}
+
+@keyframes flyShip{
+    from{left:-200px;}
+    to{left:110%;}
+}
+
+/* Planet */
+.planet{
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    top:20%;
+    right:10%;
+    background:radial-gradient(circle at 30% 30%, #73ffff, #004477, #000814);
+    box-shadow:0 0 60px #00ffff;
+    animation:rotatePlanet 10s linear infinite;
+}
+
+@keyframes rotatePlanet{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+/* Title */
+.title{
+    position:absolute;
+    top:8%;
+    left:5%;
+}
+
+.title h1{
+    font-size:54px;
+    color:#00ffff;
+    text-shadow:0 0 20px #00ffff;
+}
+
+.title p{
+    font-size:22px;
+    margin-top:10px;
+}
+
+/* Buttons */
+.panel{
+    position:absolute;
+    top:30%;
+    left:5%;
+    width:320px;
+}
+
+.btn{
+    width:100%;
+    padding:15px;
+    margin:10px 0;
+    font-size:18px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    background:rgba(0,255,255,0.15);
+    color:white;
+    border:1px solid #00ffff;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#00ffff;
+    color:black;
+    transform:scale(1.06);
+}
+
+/* Info Box */
+.info{
+    position:absolute;
+    bottom:6%;
+    left:5%;
+    width:90%;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    font-size:20px;
+    line-height:1.6;
+}
+
+.highlight{
+    color:#00ffff;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADING -->
+<div id="loading">
+    <h1>VR Mission</h1>
+    <p id="loadText">Initializing VR...</p>
+</div>
+
+<!-- MAIN -->
+<div id="main">
+
+<div class="stars"></div>
+<div class="ship">🚀</div>
+<div class="planet"></div>
+
+<div class="title">
+    <h1>Planet Xeron-9</h1>
+    <p>Welcome Explorer</p>
+</div>
+
+<div class="panel">
+    <button class="btn" onclick="scanPlanet()">🔍 Scan Planet</button>
+    <button class="btn" onclick="showCreatures()">👽 New Creatures</button>
+    <button class="btn" onclick="collectOxygen()">🌱 Collect Oxygen</button>
+    <button class="btn" onclick="restoreWater()">💧 Restore Water</button>
+    <button class="btn" onclick="aiAnalysis()">🤖 AI Analysis</button>
+</div>
+
+<div class="info" id="infoBox">
+Mission Ready. Select an action to begin.
+</div>
+
+</div>
+
+<script>
+
+/* LOADING SCREEN TEXT */
+setTimeout(()=>{
+document.getElementById("loadText").innerText="Syncing Neural Sensors...";
+},1000);
+
+setTimeout(()=>{
+document.getElementById("loadText").innerText="Welcome Explorer.";
+},2000);
+
+setTimeout(()=>{
+document.getElementById("loading").style.display="none";
+document.getElementById("main").style.display="block";
+},3000);
+
+/* BUTTON ACTIONS */
+function scanPlanet(){
+document.getElementById("infoBox").innerHTML=
+"<span class='highlight'>Scan Complete</span><br>Atmosphere: 54% Oxygen<br>Threat Level: Medium";
+}
+
+function showCreatures(){
+document.getElementById("infoBox").innerHTML=
+"<span class='highlight'>Creatures Found</span><br>• Sky Whale<br>• Crystal Bird<br>• Neon Crawler";
+}
+
+function collectOxygen(){
+document.getElementById("infoBox").innerHTML=
+"<span class='highlight'>Oxygen Collected</span><br>+12% Air Purity Restored.";
+}
+
+function restoreWater(){
+document.getElementById("infoBox").innerHTML=
+"<span class='highlight'>Water Systems Restored</span><br>Rivers are flowing again.";
+}
+
+function aiAnalysis(){
+document.getElementById("infoBox").innerHTML=
+"<span class='highlight'>AI Prediction</span><br>Planet Recovery: 97% Possible.<br>Hope Restored.";
+}
+
+</script>
+
+</body>
+</html>
