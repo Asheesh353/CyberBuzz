@@ -15,7 +15,8 @@
 
 body{
     overflow:hidden;
-    background:linear-gradient(to bottom,#03010a,#120028,#22003f);
+    /* UPDATED BACKGROUND (BG2) */
+    background:url('bg2.jpg') no-repeat center center/cover;
     color:white;
 }
 
@@ -32,16 +33,13 @@ body{
     z-index:9999;
 }
 
-/* 💙 NAVYA STYLE (SIMPLE GLOW) */
 #loading h1{
     color:#00ffff;
     font-size:48px;
-
     text-shadow:
         0 0 6px #00ffff,
         0 0 12px rgba(0,255,255,0.7);
 }
-
 
 /* MAIN PAGE */
 #main{
@@ -51,7 +49,7 @@ body{
     position:relative;
 }
 
-/* 🌿 BUTTON (CLICKABLE) */
+/* BUTTON */
 .planet-btn{
     position:absolute;
     top:15px;
@@ -72,7 +70,6 @@ body{
     color:black;
 }
 
-/* Stars */
 .stars{
     position:absolute;
     width:100%;
@@ -87,7 +84,6 @@ body{
     to{transform:translateY(1000px);}
 }
 
-/* Spaceship */
 .ship{
     position:absolute;
     top:15%;
@@ -101,7 +97,6 @@ body{
     to{left:110%;}
 }
 
-/* Planet */
 .planet{
     position:absolute;
     width:260px;
@@ -119,7 +114,6 @@ body{
     to{transform:rotate(360deg);}
 }
 
-/* Title */
 .title{
     position:absolute;
     top:8%;
@@ -137,7 +131,6 @@ body{
     margin-top:10px;
 }
 
-/* Buttons */
 .panel{
     position:absolute;
     top:30%;
@@ -165,7 +158,6 @@ body{
     transform:scale(1.06);
 }
 
-/* Info Box */
 .info{
     position:absolute;
     bottom:6%;
@@ -186,16 +178,13 @@ body{
 
 <body>
 
-<!-- LOADING -->
 <div id="loading">
     <h1>VR Mission</h1>
     <p id="loadText">Initializing VR...</p>
 </div>
 
-<!-- MAIN -->
 <div id="main">
 
-<!-- 🌿 BUTTON -->
 <a href="eco.html" class="planet-btn">🌿 PLANET SPE</a>
 
 <div class="stars"></div>
@@ -222,46 +211,45 @@ Mission Ready. Select an action to begin.
 </div>
 
 <script>
-
 setTimeout(()=>{
-document.getElementById("loadText").innerText="Syncing Neural Sensors...";
+    document.getElementById("loadText").innerText="Syncing Neural Sensors...";
 },1000);
 
 setTimeout(()=>{
-document.getElementById("loadText").innerText="Welcome Explorer.";
+    document.getElementById("loadText").innerText="Welcome Explorer.";
 },2000);
 
 setTimeout(()=>{
-document.getElementById("loading").style.display="none";
-document.getElementById("main").style.display="block";
+    document.getElementById("loading").style.display="none";
+    document.getElementById("main").style.display="block";
 },3000);
 
 function scanPlanet(){
-document.getElementById("infoBox").innerHTML=
-"<span class='highlight'>Scan Complete</span><br>Atmosphere: 54% Oxygen<br>Threat Level: Medium";
+    document.getElementById("infoBox").innerHTML=
+    "<span class='highlight'>Scan Complete</span><br>Atmosphere: 54% Oxygen<br>Threat Level: Medium";
 }
 
 function showCreatures(){
-document.getElementById("infoBox").innerHTML=
-"<span class='highlight'>Creatures Found</span><br>• Sky Whale<br>• Crystal Bird<br>• Neon Crawler";
+    document.getElementById("infoBox").innerHTML=
+    "<span class='highlight'>Creatures Found</span><br>• Sky Whale<br>• Crystal Bird<br>• Neon Crawler";
 }
 
 function collectOxygen(){
-document.getElementById("infoBox").innerHTML=
-"<span class='highlight'>Oxygen Collected</span><br>+12% Air Purity Restored.";
+    document.getElementById("infoBox").innerHTML=
+    "<span class='highlight'>Oxygen Collected</span><br>+12% Air Purity Restored.";
 }
 
 function restoreWater(){
-document.getElementById("infoBox").innerHTML=
-"<span class='highlight'>Water Systems Restored</span><br>Rivers are flowing again.";
+    document.getElementById("infoBox").innerHTML=
+    "<span class='highlight'>Water Systems Restored</span><br>Rivers are flowing again.";
 }
 
 function aiAnalysis(){
-document.getElementById("infoBox").innerHTML=
-"<span class='highlight'>AI Prediction</span><br>Planet Recovery: 97% Possible.<br>Hope Restored.";
+    document.getElementById("infoBox").innerHTML=
+    "<span class='highlight'>AI Prediction</span><br>Planet Recovery: 97% Possible.<br>Hope Restored.";
 }
-
 </script>
 
 </body>
 </html>
+
