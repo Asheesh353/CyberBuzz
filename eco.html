@@ -20,6 +20,28 @@ body{
     display:flex;
     justify-content:center;
     align-items:center;
+    position:relative;
+}
+
+/* BACK BUTTON */
+.back-btn{
+    position:absolute;
+    top:20px;
+    left:20px;
+    padding:8px 14px;
+    border-radius:12px;
+    border:1px solid #6affc6;
+    background:rgba(106,255,198,0.1);
+    color:white;
+    cursor:pointer;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.back-btn:hover{
+    background:#6affc6;
+    color:black;
+    transform:scale(1.05);
 }
 
 /* CONTAINER */
@@ -107,6 +129,11 @@ body{
 
 <body>
 
+<!-- BACK BUTTON -->
+<button onclick="location.href='index.html'" class="back-btn">
+⬅ Back to Xeron-9
+</button>
+
 <div class="container">
 
 <div class="header">
@@ -164,7 +191,6 @@ function update(type){
     document.getElementById("infoBox").innerHTML = text;
     document.getElementById("bar").style.width = progress + "%";
 
-    // FINAL STATE
     if(progress >= 100){
         document.getElementById("infoBox").innerHTML =
         "<span class='highlight'>Planet Restored</span><br>Life is thriving once again.";
